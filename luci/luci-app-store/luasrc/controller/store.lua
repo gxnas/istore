@@ -103,12 +103,7 @@ local function user_config()
 end
 
 local function vue_lang()
-    local uci = require("luci.model.uci").cursor()
-    local lang = uci:get("luci", "main", "lang") or "en"
-    if lang == "zh_cn" then
-        return "zh-cn"
-    end
-    return lang
+    return "zh-cn"
 end
 
 local function flock(file, type)
