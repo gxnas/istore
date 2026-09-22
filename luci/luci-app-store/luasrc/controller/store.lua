@@ -103,10 +103,10 @@ local function user_config()
 end
 
 local function vue_lang()
-    local i18n = require("luci.i18n")
-    local lang = i18n.translate("istore_vue_lang")
-    if lang == "istore_vue_lang" or lang == "" then
-        lang = "en"
+    local uci = require("luci.model.uci").cursor()
+    local lang = uci:get("luci", "main", "lang") or "en"
+    if lang == "zh_cn" then
+        return "zh-cn"
     end
     return lang
 end
